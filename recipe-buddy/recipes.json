@@ -1,0 +1,618 @@
+{
+  "count": 24,
+  "recipes": [
+    {
+      "f2f_url": "http://food2fork.com/view/9b0e8c",
+      "title": "One-pan salmon with roast asparagus",
+      "source_url": "http://www.bbcgoodfood.com/recipes/5925/onepan-salmon-with-roast-asparagus",
+      "recipe_id": "9b0e8c",
+      "image_url": "http://static.food2fork.com/5925_MEDIUM39fc.jpg",
+      "tags": [
+          "potatoes", "olive oil", "asparagus", "tomatoes", "vinegar",
+          "salmon", "basil"
+      ],
+      "cooking_time" : 45,
+      "ingredients": {
+        "new potatoes, halved if large" : "400g",
+        "olive oil" : "2 tbsp",
+        "asparagus spears, trimmed and halved" : "8",
+        "handfuls of cherry tomatoes" : "2",
+        "balsamic vinegar" : "1 tbsp",
+        "salmon fillets, about 140g/5oz each" : "2",
+        "handful of basil leaves" : "1"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/35584",
+      "title": "Smoked Salmon Asparagus Quinoa Cake Eggs Benedict",
+      "source_url": "http://www.closetcooking.com/2012/05/smoked-salmon-asparagus-quinoa-cake.html",
+      "recipe_id": "35584",
+      "image_url": "http://static.food2fork.com/Asparagus2BQuinoa2BCake2Band2BSmoked2BSalmon2BEggs2BBenedict2B5002B10024a2315de.jpg",
+      "tags": [
+          "butter", "lemon", "water", "egg yolk", "dill", "salt",
+          "pepper", "egg", "asparagus", "quinoa", "salmon",
+          "broth", "green onion", "garlic", "parsley", "flour",
+          "feta", "oil", "benedict"
+      ],
+      "cooking_time" : 30,
+      "ingredients": {
+        "cups butter, melted and hot" : "1/2",
+        "tablespoons lemon juice, hot" : "2",
+        "tablespoons water, hot" : "4",
+        "egg yolks": "3",
+        "dill, chopped": "1 tbsp",
+        "salt and pepper to taste" : "1",
+        "eggs" : "4",
+        "asparagus quinoa cakes, see below" : "4",
+        "spears asparagus, blanched": "12",
+        "smoked salmon" : "4 ounces",
+        "quinoa, rinsed" : "1/2 cup",
+        "water or broth" : "1 cup",
+        "asparagus, grated or processed" : "1/2 pound",
+        "green onions, sliced" : "2",
+        "garlic, chopped" : "1 clove",
+        "dill, chopped": "1 handful",
+        "parsley, chopped" : "1 handful",
+        "eggs, lightly beaten" : "2",
+        "flour" : "1/4 cup",
+        "feta, crumbled" : "1/4 cup",
+        "oil for frying" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/ee6fc1",
+      "title": "Superhealthy salmon burgers",
+      "source_url": "http://www.bbcgoodfood.com/recipes/7712/superhealthy-salmon-burgers",
+      "recipe_id": "ee6fc1",
+      "image_url": "http://static.food2fork.com/7712_MEDIUM6ec0.jpg",
+      "tags" : [
+        "salmon", "curry paste", "ginger", "soy sauce", "coriander",
+        "vegetable oil", "lemon wedges", "carrot", "cucumber",
+        "wine vinegar", "caster sugar", "burger"
+      ],
+      "cooking_time" : 25,
+      "ingredients": {
+        "boneless, skinless salmon fillets, about 550g in total, cut into chunks" : "4",
+        "thai red curry paste" : "2 tbsp",
+        "fresh root ginger, grated" : "thumb-size piece",
+        "soy sauce" : "1 tsp",
+        "coriander, half chopped, half leaves picked" : "1 bunch",
+        "vegetable toil" : "1 tsp",
+        "lemon wedges": "none",
+        "carrots": "2",
+        "cucumber" : "1 small",
+        "white wine vinegar" : "2 tbsp",
+        "golden caster sugar": "1 tsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/35669",
+      "title": "Vietnamese Caramel Salmon Banh Mi",
+      "source_url": "http://www.closetcooking.com/2012/06/vietnamese-caramel-salmon-banh-mi.html",
+      "recipe_id": "35669",
+      "image_url": "http://static.food2fork.com/Vietnamese2BCaramel2BSalmon2BBanh2BMi2B5002B032244a34624.jpg",
+      "tags": [
+        "baguette", "mayo", "salmon", "radish", "pickled carrot", "cucumber",
+        "jalapeno", "chilies", "cilantro", "water", "sugar", "fish sauce",
+        "lime", "chili", "garlic", "shallot", "banh mi", "vietnamese"
+      ],
+      "cooking_time" : 35,
+      "ingredients" : {
+        "baguette, cut into 4 sandwich sized lengths or 4 long buns, sliced in half" : "1",
+        "mayonnaise" : "4 tbsp",
+        "vietnamese caramel salmon (see below)" : "1 pound",
+        "picked daikon radish" : "1/4 cup",
+        "picked carrots" : "1/4 cup",
+        "cucumber, thinly sliced" : "1/2 cup",
+        "jalapeno or birds eye chilies, sliced" : "2",
+        "cilantro" : "1 large handful",
+        "water": "2 tbsp",
+        "sugar" : "1/4 cup",
+        "fish sauce" : "2 tbsp",
+        "lime, juice" : "1",
+        "water": "2 tbsp",
+        "birds eye chili, sliced": "1",
+        "garlic, chopped" : "2 cloves",
+        "shallots, finely diced" : "2",
+        "salmon, deboned and cut into large chunks" : "1 pound"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/6cde1a",
+      "title": "Puffed salmon & spinach fish pie",
+      "source_url": "http://www.bbcgoodfood.com/recipes/2877661/puffed-salmon-and-spinach-fish-pie",
+      "recipe_id": "6cde1a",
+      "image_url": "http://static.food2fork.com/2877661_MEDIUM989c.jpg",
+      "tags" : [
+        "potato", "spinach", "cheddar", "nutmeg", "salmon", "onion",
+        "garlic", "bay leaf", "milk", "fish stock", "butter", "olive oil",
+        "flour", "mustard", "fish pie", "pie"
+      ],
+      "cooking_time" : 20,
+      "ingredients": {
+        "maris piper potatoes, cut into large chunks": "1 kg",
+        "eggs, separated": "2 large",
+        "frozen whole-leaf spinach, defrosted and squeezed dry": "400 g",
+        "reduced-fat mature cheddar": "85 g",
+        "nutmeg, for grating" : "whole",
+        "fish of your choice (salmon recommended)" : "500 g",
+        "onion, halved": "1",
+        "garlic" : "2 cloves",
+        "fresh or dried bay leaf" : "1",
+        "semi-skimmed milk" : "300 ml",
+        "fish stock" : "300 ml",
+        "butter" : "25 g",
+        "extra-virgin olive oil" : "2 tbsp",
+        "plain flour" : "50 g",
+        "wholegrain mustard" : "1 tsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/49323",
+      "title": "Salmon Cakes with Lemon, Dill, and Homemade Dijon Mayonnaise",
+      "source_url": "http://www.bonappetit.com/recipes/2012/04/salmon-cakes-with-lemon-dill-and-homemade-dijon-mayonnaise",
+      "recipe_id": "49323",
+      "image_url": "http://static.food2fork.com/salmoncakes6466d42.jpg",
+      "tags" : [
+        "egg yolk", "mustard", "dijon", "lemon", "vegetable oil",
+        "olive oil", "dill", "salt", "salmon", "potato", "egg",
+        "dill", "scallion", "lemon zest", "pepper", "salmon cake",
+        "dijon mayo"
+      ],
+      "cooking_time" : 50,
+      "ingredients": {
+        "egg yolk" : "1 large",
+        "dijon mustard" : "2 tbsp",
+        "fresh lemon juice": "1 tbsp",
+        "vegetable or olive oil" : "1/2 cup",
+        "finely chopped fresh dill" : "1 tsp",
+        "kosher salt": "none",
+        "salmon fillet" : "3/4 pound",
+        "vegetable or olive oil (for brushing and cooking)" : "none",
+        "russet potatoes, peeled, cut into 2-inch chunks": "1 1/2 pounds",
+        "kosher salt plus more for seasoning" : "1 tsp",
+        "egg": "1 large",
+        "egg yolk" : "1 large",
+        "finely chopped fresh dill": "2 tbsp",
+        "scallions, thinly sliced" : "2",
+        "lemon zest" : "2 tsp",
+        "freshly ground black or crushed red pepper (optional)": "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/36674",
+      "title": "Pan Seared Salmon with Avocado Remoulade",
+      "source_url": "http://www.simplyrecipes.com/recipes/pan_seared_salmon_with_avocado_remoulade/",
+      "recipe_id": "36674",
+      "image_url": "http://static.food2fork.com/salmonavocadoremouladeb300x200f3bb0950.jpg",
+      "tags" : [
+        "avocado", "lime", "olive oil", "shallot", "parsley", "dijon", "mustard",
+        "pepper", "salmon", "canola oil", "grapeseed", "remoulade", "pan seared salmon"
+      ],
+      "cooking_time" : 40,
+      "ingredients" : {
+        "avocados, cut and peeled" : "2 large",
+        "freshly squeezed lime juice" : "2 tbsp",
+        "light olive oil" : "3-4 tbsp",
+        "minced shallots or green onion" : "1 tbsp",
+        "minced parsley" : "1 tbsp",
+        "dijon mustard or to taste" : "1 tsp",
+        "salt and pepper to taste" : "none",
+        "salmon fillets" : "1 to 1 1/2 pounds",
+        "grapdeseed or canola oil" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/ef1ae7",
+      "title": "Classic chunky fish cakes",
+      "source_url": "http://www.bbcgoodfood.com/recipes/1094668/classic-chunky-fish-cakes",
+      "recipe_id": "ef1ae7",
+      "image_url": "http://static.food2fork.com/1094668_MEDIUMb7d6.jpg",
+      "tags" : [
+        "potato", "salmon", "coley", "lemon", "dill", "chive", "parsley",
+        "spring onion", "tartar sauce", "tartar", "egg", "flour",
+        "breadcrumb", "olive oil", "fish cake"
+      ],
+      "cooking_time" : 25,
+      "ingredients" : {
+        "potatoes, peeled and chopped" : "1 kg",
+        "mix samlon and coley fillets" : "1 kg",
+        "lemon (zest and juice)" : "1",
+        "dill, chives, parsley and spring onions (chopped)" : "bunch",
+        "tartar sauce" : "4 tbsp",
+        "eggs, beaten" : "3",
+        "plain flour" : "100 g",
+        "breadcrumbs" : "250 g",
+        "olive oil" : "2 tbsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/18354",
+      "title": "Oregon Salmon Patties",
+      "source_url": "http://allrecipes.com/Recipe/Oregon-Salmon-Patties/Detail.aspx",
+      "recipe_id": "18354",
+      "image_url": "http://static.food2fork.com/6793100e91.jpg",
+      "tags" : [
+        "salmon", "butter", "onion", "cracker crumb", "egg", "parsley",
+        "mustard", "shortening", "salmon patties"
+      ],
+      "cooking_time" : 20,
+      "ingredients": {
+        "can salmon": "1 (14.75 ounce)",
+        "butter" : "2 tbsp",
+        "onion, chopped" : "1 medium",
+        "cracker crumbs": "2/3 cup",
+        "eggs, beaten": "2",
+        "chopped fresh parsley" : "1/4 cup",
+        "dry mustard" : "1 tsp",
+        "shortening" : "3 tbsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/b3c73d",
+      "title": "Salmon-Miso Sinigang (Filipino Sour Soup) Recipe",
+      "source_url": "http://www.chow.com/recipes/30380-salmon-miso-sinigang-filipino-sour-soup",
+      "recipe_id": "b3c73d",
+      "image_url": "http://static.food2fork.com/30380_RecipeImage_620x413_filipino_sour_soup0c2a.jpg",
+      "tags" : [
+        "vegetable oil", "onion", "garlic", "salt", "tomato", "wine", "water",
+        "radish", "calamansi", "lime", "fish sauce", "miso", "salmon", "mizuna",
+        "mustard greens", "greens", "pepper", "sinigang", "sour soup", "soup"
+      ],
+      "cooking_time" : 35,
+      "ingredients" : {
+        "vegetable oil" : "1 tbsp",
+        "red onion, medium diced" : "1 small",
+        "garlic cloves, minced" : "3 medium",
+        "kosher salt" : "1 tsp",
+        "roma tomatoes, cored and medium diced" : "2 medium",
+        "dry white wine" : "1 cup",
+        "water": "4 cups",
+        "daikon radish , peeled, halved lengthwise, and cut crosswise into 1/4-inch-thick slices" : "8 ounces",
+        "freshly squeezed calamansi or lime juice (from about 2 medium limes or 2 large calamansi), plus more as needed" : "3 tbsp",
+        "fish sauce" : "2 tbsp",
+        "white miso" : "2 tbsp",
+        "salmon , skin and pin bones removed and cut into 1-inch cubes" : "1 pound",
+        "packed, coarsely chopped Asian mustard greens , such as mizuna" : "1 cup",
+        "freshley ground black pepper" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/bc0729",
+      "title": "Basic Baked Breaded Salmon Recipe",
+      "source_url": "http://www.chow.com/recipes/29341-basic-baked-breaded-salmon",
+      "recipe_id": "bc0729",
+      "image_url": "http://static.food2fork.com/29341_basic_baked_salmon_620801f.jpg",
+      "tags" : [
+        "olive oil", "dijon", "mustard", "parsley", "salmon", "salt",
+        "pepper", "panko", "breaded salmon"
+      ],
+      "cooking_time" : 20,
+      "ingredients" : {
+        "olive oil, plus more for coating the foil" : "2 tsp",
+        "dijon mustard" : "2 tsp",
+        "finely chopped fresh parsley" : "1 tbsp",
+        "skin-on salmon fillet" : "1 (20-ounce)",
+        "kosher salt" : "none",
+        "freshley ground black pepper" : "none",
+        "panko" : "3 tbsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/9135d8",
+      "title": "Sesame Salmon Burgers",
+      "source_url": "http://www.elanaspantry.com/sesame-salmon-burgers/",
+      "recipe_id": "9135d8",
+      "image_url": "http://static.food2fork.com/glutenfreesesamesalmonburgerrecipe3fc1.jpg",
+      "tags" : [
+        "salmon", "sesame oil", "vinegar", "garlic", "ginger", "scallion",
+        "sesame seed", "egg", "grapeseed", "oil", "burger"
+      ],
+      "cooking_time" : 30,
+      "ingredients" : {
+        "salmon, skin removed" : "1 pound",
+        "toasted sesame oil" : "1 tbsp",
+        "ume plum vinegar" : "1 tbsp",
+        "garlic, pressed": "1 clove",
+        "peeled and minced fresh ginger" : "1 tsp",
+        "chopped scallions (white and green parts)" : "1 cup",
+        "toasted sesame seeds": "1 cup",
+        "eggs" : "2 large",
+        "grapeseed oil" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/36873",
+      "title": "Salmon Mousse",
+      "source_url": "http://www.simplyrecipes.com/recipes/salmon_mousse/",
+      "recipe_id": "36873",
+      "image_url": "http://static.food2fork.com/salmonmousse520a300x200d796ef87.jpg",
+      "tags" : [
+        "salmon", "celery", "pepper", "onion", "dill", "mayo", "yogurt",
+        "cream cheese", "tomato soup", "tomato sauce", "tabasco", "lemon",
+        "water", "gelatin", "yoghurt", "mousse"
+      ],
+      "cooking_time" : 30,
+      "ingredients": {
+        "freshly cooked or canned boneless salmon" : "1 lb",
+        "diced celery" : "1/2 cup",
+        "diced green pepper" : "1/2 cup",
+        "finely chopped onion" : "1/4 cup",
+        "chopped fresh dill" : "3 tbsp",
+        "mayonnaise" : "1/2 cup",
+        "plain yoghurt" : "1/2 cup",
+        "package of cream cheese" : "1 8 oz",
+        "1 can concentrated tomato soup or 8 ounces of pured tomato sauce" : "none",
+        "tabasco sauce" : "none",
+        "lemon juice" : "3 tbsp",
+        "cold water" : "3/4 cup",
+        "unflavored, unsweetened gelatin" : "4 tsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/6a7998",
+      "title": "Whole Wheat Pasta Salad with Salmon, Tomatoes & Herb Dressing",
+      "source_url": "http://www.cookincanuck.com/2012/04/whole-wheat-pasta-salad-recipe-with-salmon-tomatoes-herb-dressing-for-a-half-marathon/",
+      "recipe_id": "6a7998",
+      "image_url": "http://static.food2fork.com/6938946520_1a106c7a202300x300015a.jpg",
+      "tags" : [
+        "garlic", "lemon", "parsley", "oregano", "chile", "salt", "pepper",
+        "olive oil", "penne", "pasta", "salmon", "tomato", "cheese", "feta",
+        "myzithra", "pepper", "whole wheat pasta", "pasta salad"
+      ],
+      "cooking_time" : 40,
+      "ingredients" : {
+        "garlic, minced" : "1 clove",
+        "fresh lemon juice" : "1/4 cup",
+        "chopped italian parsley" : "1/2 cup",
+        "chopped fresh oregano" : "3 tbsp",
+        "dried chile flakes" : "1/4 tsp",
+        "kosher salt" : "1/4 tsp",
+        "freshly ground black pepper" : "1/4 tsp",
+        "olive oil" : "1/2 cup",
+        "whole wheat penne pasta" : "13 oz",
+        "skinless salmon, cut into 3/4-inch pieces" : "12 oz",
+        "grape or cherry tomatoes, cut in half" : "8 oz",
+        "myzithra (or feta) cheese" : "3 oz",
+        "salt and pepper to taste" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/bdc7d0",
+      "title": "Roast salmon with peas, potatoes & bacon",
+      "source_url": "http://www.bbcgoodfood.com/recipes/2063656/roast-salmon-with-peas-potatoes-and-bacon",
+      "recipe_id": "bdc7d0",
+      "image_url": "http://static.food2fork.com/2063656_MEDIUMa01e.jpg",
+      "tags" : [
+        "potato", "olive oil", "lardon", "bacon", "salmon", "pea",
+        "onion", "wine", "mint", "roast salmon"
+      ],
+      "cooking_time" : 20,
+      "ingredients" : {
+        "baby new potatoes , halved" : "500 g bag",
+        "olive oil" : "2 tsp",
+        "smoked bacon lardons" : "150 g pack",
+        "whole piece skinless salmon fillet , about 700g/1lb 9oz" : "1",
+        "frozen peas , defrosted" : "200 g",
+        "spring onions, sliced" : "4",
+        "splash white wine vinegar" : "none",
+        "mint, chopped" : "small handful"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/31cbfd",
+      "title": "Smoked salmon flatbreads",
+      "source_url": "http://www.bbcgoodfood.com/recipes/3028677/smoked-salmon-flatbreads",
+      "recipe_id": "31cbfd",
+      "image_url": "http://static.food2fork.com/3028677_MEDIUM4f38.jpg",
+      "tags" : [
+        "pizza base", "pizza", "mascarpone", "salmon", "onion",
+        "dill", "caper", "flatbread"
+      ],
+      "cooking_time" : 20,
+      "ingredients" : {
+        "ready-made thin pizza bases (we used Napolina)" : "2 x 150 g",
+        "mascarpone" : "100 g",
+        "smoked salmon trimmings" : "120 g pack",
+        "red onion, very finely chopped" : "1 small",
+        "dill springs, snipped" : "2",
+        "small capers" : "2 tsp"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/1db784",
+      "title": "Mexican bean burgers with lime yogurt & salsa",
+      "source_url": "http://www.bbcgoodfood.com/recipes/9978/mexican-bean-burgers-with-lime-yogurt-and-salsa",
+      "recipe_id": "1db784",
+      "image_url": "http://static.food2fork.com/9978_MEDIUM0908.jpg",
+      "tags" : [
+        "kidney beans", "beans", "breadcrumb", "chili", "coriander",
+        "egg", "salsa", "yoghurt", "yogurt", "lime", "burger bun", "bun",
+        "avocado", "onion", "salad", "mexican", "burger"
+      ],
+      "cooking_time" : 15,
+      "ingredients" : {
+        "kidney beans , rinsed and drained" : "2 x 400g/14oz cans",
+        "breadcrumbs" : "100 g",
+        "mild chilli powder" : "2 tsp",
+        "coriander , stalks and leaves chopped" : "small bunch",
+        "egg" : "1",
+        "fresh salsa" : "200 g tub",
+        "low-fat natural yogurt" : "150 ml",
+        "juice lime" : "none",
+        "wholemeal burger buns , sliced avocado, sliced red onion and salad leaves, to serve" : "6"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/35174",
+      "title": "Buffalo Chicken Sushi",
+      "source_url": "http://www.closetcooking.com/2012/07/buffalo-chicken-sushi.html",
+      "recipe_id": "35174",
+      "image_url": "http://static.food2fork.com/Buffalo2BChicken2BSushi2B5002B37560ff57bba.jpg",
+      "tags" : [
+        "rice", "sushi rice", "water", "vinegar", "sugar", "salt", "nori",
+        "chicken", "sauce", "celery", "carrot", "cheese", "blue cheese",
+        "tortilla", "sushi", "buffalo"
+      ],
+      "cooking_time" : 15,
+      "ingredients": {
+        "rice short grain rice (sushi rice)" : "1 cup",
+        "water" : "2 cups",
+        "rice wine vinegar" : "1/4 cup",
+        "sugar" : "1 tbsp",
+        "salt": "1/2 tsp",
+        "nori" : "4 sheets",
+        "cooked shredded chicken" : "1 cup",
+        "hot sauce" : "1/4 cup",
+        "celery, cut into thin strips": "2 ribs",
+        "carrots, peeled and cut into strips" : "2",
+        "blue cheese, crumbled" : "1/2 cup",
+        "cheese tortilla chips, crumbled (optional)" : "1/2 cup"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/fb51a3",
+      "title": "Quick and easy sushi maki (sushi rolls)",
+      "source_url": "http://www.bbc.co.uk/food/recipes/quickandeasysushimak_67796",
+      "recipe_id": "fb51a3",
+      "image_url": "http://static.food2fork.com/quickandeasysushimak_67796_16x9b333.jpg",
+      "tags" : [
+        "rice", "mirin", "tuna", "nori", "cucumber", "onion",
+        "wasabi", "soy sauce", "ginger", "maki", "sushi roll"
+      ],
+      "cooking_time" : 10,
+      "ingredients" : {
+        "sushi rice" : "255 g",
+        "mirin" : "55 ml",
+        "sashimi quality tuna, cut into long thin strips" : "340 g",
+        "nori sushi sheets" : "5",
+        "cucumber" : "1",
+        "spring onions" : "5",
+        "wasabi" : "3 tsp",
+        "light soy sauce" : "none",
+        "japanese pickled ginger" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/89d398",
+      "title": "Smoked salmon & avocado sushi",
+      "source_url": "http://www.bbcgoodfood.com/recipes/1813661/smoked-salmon-and-avocado-sushi",
+      "recipe_id": "89d398",
+      "image_url": "http://static.food2fork.com/1813661_MEDIUMb56e.jpg",
+      "tags" : [
+        "rice", "vinegar", "sugar", "avocado", "lemon", "nori", "seaweed",
+        "salmon", "chive", "soy sauce", "sushi"
+      ],
+      "cooking_time" : 10,
+      "ingredients" : {
+        "sushi rice" : "300 g",
+        "rice or white wine vinegar" : "2 tbsp",
+        "caster sugar" : "1 tsp",
+        "avocado" : "1 large",
+        "lemon juice" : "none",
+        "nori seaweed" : "4 sheets",
+        "smoked salmon" : "4 large slices",
+        "chives" : "1 bunch",
+        "sweet soy sauce" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/1c2525",
+      "title": "Sushi salad with seared tuna, avocado & rice wine dressing",
+      "source_url": "http://www.bbcgoodfood.com/recipes/260613/sushi-salad-with-seared-tuna-avocado-and-rice-wine",
+      "recipe_id": "1c2525",
+      "image_url": "http://static.food2fork.com/260613_MEDIUM9a08.jpg",
+      "tags" : [
+        "rice", "vinegar", "sugar", "tuna", "pepper", "nori", "seaweed",
+        "sushi", "avocado", "onion", "sesame seed", "soy sauce"
+      ],
+      "cooking_time" : 15,
+      "ingredients" : {
+        "sushi rice" : "100 g",
+        "rice vingear" : "2 tbsp",
+        "sugar" : "2 tbsp",
+        "tuna steak" : "1",
+        "coarsely ground black pepper (enough to coat the tuna)" : "none",
+        "nori seaweed sushi paper, cut into shreds (optional)" : "1 sheet",
+        "avocado, sliced" : "1 small",
+        "red onion, thinly sliced" : "1 small",
+        "toasted black or white sesame seeds" : "1 tbsp",
+        "soy sauce, to serve" : "none"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/0bf2cb",
+      "title": "Easy salmon sushi",
+      "source_url": "http://www.bbcgoodfood.com/recipes/4956/easy-salmon-sushi",
+      "recipe_id": "0bf2cb",
+      "image_url": "http://static.food2fork.com/4956_MEDIUMaaa8.jpg",
+      "tags" : [
+        "sushi", "rice", "vinegar", "sugar", "caster", "salmon"
+      ],
+      "cooking_time" : 10,
+      "ingredients": {
+        "sushi rice" : "300 g",
+        "rice wine vinegar" : "4 tbsp",
+        "caster sugar" : "1 tbsp",
+        "smoken salmon slices" : "200 g pack"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/23d7c9",
+      "title": "Sushi hand rolls (temaki)",
+      "source_url": "http://www.bbcgoodfood.com/recipes/1931690/sushi-hand-rolls-temaki",
+      "recipe_id": "23d7c9",
+      "image_url": "http://static.food2fork.com/1931690_MEDIUMbc6c.jpg",
+      "tags" : [
+        "sushi", "hand roll", "handroll", "temaki", "nori", "wasabi", "ginger",
+        "soy sauce", "salmon", "tuna", "avocado", "cucumber", "prawn", "spring onion",
+        "onion", "sushi rice", "rice", "vinegar", "caster", "sugar", "kombu", "mayo",
+        "chili", "garlic sauce", "lemon"
+      ],
+      "cooking_time" : 15,
+      "ingredients" : {
+        "nori" : "7 sheets",
+        "wasabi" : "none",
+        "pickled ginger" : "none",
+        "soy sauce" : "none",
+        "salmon or tuna , cut into strips" : "150 g",
+        "avocado , peeled and cut into strips" : "1",
+        "cucumber , seeds removed and cut into strips" : "1",
+        "cooked, peeled prawns" : "150 g",
+        "spring onions , finely chopped (including green parts)" : "2",
+        "sushi rice" : "250 g",
+        "japanese rice vinegar" : "50 ml",
+        "golden caster sugar" : "40 g",
+        "kombu (optional)" : "3 cm piece",
+        "mayonnaise" : "6 tbsp",
+        "thai chilli paste or chilli garlic sauce": "2-3 tbsp",
+        "lemon, juiced" : "1"
+      }
+    },
+    {
+      "f2f_url": "http://food2fork.com/view/218e29",
+      "title": "Sushi rice bowl with beef, egg & chilli sauce",
+      "source_url": "http://www.bbcgoodfood.com/recipes/1841638/sushi-rice-bowl-with-beef-egg-and-chilli-sauce",
+      "recipe_id": "218e29",
+      "image_url": "http://static.food2fork.com/1841638_MEDIUM3f6c.jpg",
+      "tags": [
+        "sushi", "beef", "egg", "chili", "rice", "rump steak", "garlic",
+        "soy sauce", "sugar", "sesame oil", "egg", "carrot", "courgette",
+        "chili"
+      ],
+      "cooking_time" : 30,
+      "ingredients" : {
+        "sushi rice": "140 g",
+        "rump steak , thinly sliced" : "250 g",
+        "garlic clove, chopped" : "1",
+        "soy sauce" : "1 tbsp",
+        "sugar" : "pinch",
+        "sesame oil" : "2 tbsp",
+        "eggs" : "2",
+        "carrot , cut into long matchsticks" : "1 large",
+        "courgette , cut into long matchsticks" : "1 large",
+        "sweet and spicy chili sauce" : "2 tbsp"
+      }
+    }
+  ]
+}
