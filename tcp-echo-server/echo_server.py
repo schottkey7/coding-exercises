@@ -8,7 +8,7 @@ import os
 
 class EchoServer(object):
 
-    """ Create a non-blocking tcp echo server. """
+    """ Non-blocking tcp echo server implementation. """
 
     def __init__(self):
         # Create a tcp/ip socket
