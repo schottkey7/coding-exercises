@@ -25,8 +25,6 @@ def shorten():
     """ Return a shortened version of the original url """
     original_url = request.args.get('url')
 
-    print original_url
-
     if original_url.startswith('www'):
         original_url = '{}{}'.format('https://', original_url)
 
