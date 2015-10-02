@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smidgen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Smidgen <small>a url shortening service</small></h1>
+      </div>
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Report</li>
+      </ol>
+      {% if results %}
+      <table class="table">
+          <thead>
+              <tr>
+                  <th>ID</th>
+                  <th>Original URL</th>
+                  <th>Shortened URL</th>
+                  <th>Hits</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for row in rows %}
+              <tr>
+                  <td>{{ row.id }}</td>
+                  <td>{{ row.original }}</td>
+                  <td>{{ row.shortened }}</td>
+                  <td>{{ row.hits }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      {% else %}
+      <p>No results found.</p>
+       {% endif %}
+    </div>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smidgen</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Smidgen <small>a url shortening service</small></h1>
+      </div>
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Shorten</li>
+      </ol>
+      <form action="/shorten">
+        <label>
+          Please input URL to shorten
+        <input type="text" class="form-control" name="url" value="" />
+        </label>
+        <input class="btn btn-default" type="submit" value="OK"/>
+      </form>
+      <br />
+      <div>
+        <p>
+          <a href="/report">Generate report for most popular URLs</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
