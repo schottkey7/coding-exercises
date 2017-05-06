@@ -6,7 +6,7 @@ in individual documents or over a selection of them. The data is stored in a loc
 sqlite database called "hashtags.db". The sqlite database has limitations and performance
 suffers with large files.
 
-To process more local files, please place them in the /documents folder and they will
+To process more local files, please place them in the `/documents` folder and they will
 appear in the drop-down upon refresh. Currently only supports local .txt files.
 
 To import web pages, specify a URL in the "Load Web Pages" section and hit "Process".
