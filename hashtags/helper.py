@@ -1,4 +1,3 @@
-import nltk
 import os
 import re
 
@@ -10,13 +9,9 @@ from sqlalchemy.sql import func
 
 from nltk.corpus import stopwords
 
-
 DOCUMENTS_FOLDER = 'documents/'
 SENTENCES_REG = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s'
 WORDS_REG = r'\b[^\W\d_]+\b'
-
-
-nltk.download('punkt')
 
 
 def get_document_word(doc_id, word):
@@ -32,9 +27,9 @@ def insert_document(doc):
     return new_doc.id
 
 
-def insert_sentence_word(word, sentence):
+def insert_sentence_word(word, sentence, doc_id):
     try:
-        new_sentence_word = SentenceWords(word=word, sentence=sentence)
+        new_sentence_word = SentenceWords(word=word, sentence=sentence, doc_id=doc_id)
         db.session.add(new_sentence_word)
         db.session.commit()
     except IntegrityError:
@@ -70,41 +65,65 @@ def process_doc(file, doc, doc_id, stop):
                 if word not in stop:
                     document_words[word] += 1
                     insert_word(word)
-                    insert_sentence_word(word, sentence)
+                    insert_sentence_word(word, sentence, doc_id)
 
     insert_document_words(doc, doc_id, document_words)
 
 
-def process_files(skip=[]):
-    skip_set = set([doc[0] for doc in skip])
+def get_files(filenames, skip):
+    if skip:
+        skip_set = set([doc[0] for doc in skip])
+    else:
+        skip_set = set()
+
+    if not filenames:
+        _, _, filenames = list(os.walk(DOCUMENTS_FOLDER))[0]
+
+    filenames = [f for f in filenames if f not in skip_set]
+    return filenames
+
+
+def process_files(files=[], skip=[]):
+    filenames = get_files(files, skip)
     stop = set(stopwords.words('english'))
 
-    for dirname, _, filenames in os.walk(DOCUMENTS_FOLDER):
-        for doc in filenames:
-            if doc not in skip_set:
-                file = os.path.join(dirname, doc)
-                print('[app] Processing {}'.format(doc))
-                doc_id = insert_document(doc)
-                process_doc(file, doc, doc_id, stop)
-                print('[app] Finished processing {}'.format(doc))
+    for doc in filenames:
+        file = os.path.join(DOCUMENTS_FOLDER, doc)
+        print('[app] Processing {}'.format(doc))
+        doc_id = insert_document(doc)
+        process_doc(file, doc, doc_id, stop)
+        print('[app] Finished processing {}'.format(doc))
 
 
-def construct_report():
+def construct_report(selected_docs=None):
     top_words = 10
     limit_sentences = 5
     results = []
 
     total_count = func.sum(DocumentWords.count)
     docs = func.group_concat(Document.name.distinct())
-    # sentences = func.group_concat(SentenceWords.sentence.distinct(), ' \n\n ')
-    query = db.session.query(DocumentWords.word, total_count, docs).\
-        join(Document).\
-        group_by(DocumentWords.word).\
-        order_by(total_count.desc()).limit(top_words)
+
+    if selected_docs:
+        query = db.session.query(DocumentWords.word, total_count, docs).\
+            join(Document).\
+            filter(Document.name.in_(selected_docs)).\
+            group_by(DocumentWords.word).\
+            order_by(total_count.desc()).limit(top_words)
+    else:
+        query = db.session.query(DocumentWords.word, total_count, docs).\
+            join(Document).\
+            group_by(DocumentWords.word).\
+            order_by(total_count.desc()).limit(top_words)
 
     for word, count, docs in query.all():
-        sentences = db.session.query(SentenceWords.sentence).\
-            filter_by(word=word).limit(limit_sentences).all()
+        if selected_docs:
+            sentences = db.session.query(SentenceWords.sentence).\
+                filter_by(word=word).\
+                filter(Document.name.in_(selected_docs)).\
+                limit(limit_sentences).all()
+        else:
+            sentences = db.session.query(SentenceWords.sentence).\
+                filter_by(word=word).limit(limit_sentences).all()
 
         docs = docs.split(',')
         sentences = [(s[0], s[0].lower().find(word), len(word)) for s in sentences]

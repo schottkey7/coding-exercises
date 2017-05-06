@@ -42,14 +42,14 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="#page-top">Report</a>
+                  <a class="navbar-brand" href="/">Home</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
+                    <li class="page-scroll">
+                        <a href="#page-top">Report</a>
                     </li>
                     <li class="page-scroll">
                         <a href="#load_from_web">Load Webpages</a>
@@ -65,7 +65,7 @@
     </nav>
 
     <!-- Header -->
-    <header>
+    <!-- <header>
         <div class="container" id="report" tabindex="-1">
             <div class="row">
                 <div class="col-lg-12">
@@ -77,27 +77,46 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
 
     <!-- Re[prt] Section -->
     <section id="report">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2>Hashtags Report</h2>
+                    <br />
+                    <h2>Report</h2>
                     <hr class="star-primary">
                 </div>
             </div>
             <div class="row">
+              <form action="/process" method="POST">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label for="docs">Select documents to generate report for:</label>
+                    <select name="doc_names" multiple class="form-control" id="docs">
+                      {% for doc in files %}
+                        <option value="{{ doc }}">{{ doc }}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <div class="col-lg-2">
+                   <label for="generate">Submit report:</label>
+                   <input class="btn btn-default" type="submit" value="Generate hashtags"/>
+                </div>
+              </form>
+            </div>
+            <div class="row">
                 <div class="col-lg-12">
-                  {% if not is_empty %}
+                  {% if results %}
                   <table class="table table-bordered">
                       <thead>
                           <tr>
-                              <th>Word</th>
-                              <th>Documents</th>
-                              <th>Sentences containing the word</th>
-                              <th>Count</th>
+                              <th><p>Word</p></th>
+                              <th><p>Documents</p></th>
+                              <th><p>Sentences containing the word</p></th>
+                              <th><p>Count</p></th>
                           </tr>
                       </thead>
                       <tbody>
@@ -165,10 +184,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
-                    <p>This web app displays a report of most common 10 keywords in individual documents or over a selection of them. The data is stored in a sqlite database called hashtags.db.</p>
+                    <p>This web app displays a report of most common 10 keywords in individual documents or over a selection of them.
+                      The data is stored in a sqlite database called hashtags.db.</p>
                 </div>
                 <div class="col-lg-4">
-                    <p>To process more local files, please place them in the /documents directory and they'll be loaded upon refresh. The application supports the following formats: txt, pdf, html and web pages.</p>
+                    <p>To process more local files, please place them in the <b>/documents</b>
+                       directory and they'll appear in the dropdown in the report section.
+                       The application supports the following formats: txt, pdf, html and web pages.</p>
                 </div>
             </div>
         </div>

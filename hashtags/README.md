@@ -13,9 +13,9 @@ pip install -r requirements.txt
 
 ### Usage
 
-To initialize the database, run:
+To initialize the database and to download the required nltk packages, run:
 ```
-python initialize_db.py
+python initialize.py
 ```
 
 Then, to run the application:
