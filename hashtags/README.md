@@ -11,12 +11,11 @@ To install the requirements, run:
 pip install -r requirements.txt
 ```
 
-
 ### Usage
 
 To initialize the database, run:
 ```
-python db_create.py
+python initialize_db.py
 ```
 
 Then, to run the application:
