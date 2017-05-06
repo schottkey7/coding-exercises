@@ -5,11 +5,13 @@ decorator==4.0.11
 Flask==0.12
 Flask-SQLAlchemy==2.2
 ipdb==0.10.3
+beautifulsoup4==4.5.3
 ipython==6.0.0
 ipython-genutils==0.2.0
 itsdangerous==0.24
 jedi==0.10.2
 Jinja2==2.8
+requests==2.13.0
 MarkupSafe==0.23
 nltk==3.2.2
 packaging==16.8
