@@ -3,11 +3,10 @@ import re
 import requests as req
 
 from app import db
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, element
 from collections import defaultdict, namedtuple
 from models import DocumentWords, Document, SentenceWords
 from nltk.corpus import stopwords
-from sqlalchemy.exc import IntegrityError
 from sqlalchemy.sql import func
 from time import time
 
@@ -17,10 +16,6 @@ SENTENCES_REG = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s'
 WORDS_REG = r'\b[^\W\d_]+\b'
 
 Response = namedtuple('Response', 'status_code msg')
-
-
-def get_document_word(doc_id, word):
-    return DocumentWords.query.filter_by(doc_id=doc_id, word=word).all()
 
 
 def get_all_db_docs():
@@ -36,21 +31,20 @@ def insert_document(doc):
     return new_doc.id
 
 
-def insert_sentence_word(word, sentence, doc_id):
-    try:
-        new_sentence_word = SentenceWords(word=word, sentence=sentence, doc_id=doc_id)
-        db.session.add(new_sentence_word)
-        db.session.commit()
-    except IntegrityError:
-        db.session.rollback()
+def bulk_insert_sentence_words(words, sentence, doc_id):
+    for word in words:
+        sentence_word = SentenceWords(word=word, sentence=sentence, doc_id=doc_id)
+        db.session.merge(sentence_word)
+    db.session.commit()
 
 
-def insert_document_words(doc_id, words):
-    for word, count in words.items():
-        if not get_document_word(doc_id, word):
-            new_document_word = DocumentWords(word=word, doc_id=doc_id, count=count)
-            db.session.add(new_document_word)
-            db.session.commit()
+def bulk_insert_document_words(doc_id, words):
+    document_words = [
+        DocumentWords(word=word, doc_id=doc_id, count=count) for
+        word, count in words.items()
+    ]
+    db.session.add_all(document_words)
+    db.session.commit()
 
 
 def process_raw(contents, doc_id):
@@ -58,30 +52,50 @@ def process_raw(contents, doc_id):
     sentences = re.split(SENTENCES_REG, contents)
     document_words = defaultdict(int)
     for sentence in sentences:
+        sentence_words = set()
         words = [w.lower() for w in re.findall(WORDS_REG, sentence)]
         for word in words:
             if word not in stop:
                 document_words[word] += 1
-                insert_sentence_word(word, sentence, doc_id)
+                sentence_words.add(word)
+
+        bulk_insert_sentence_words(sentence_words, sentence, doc_id)
 
     return document_words
+
+
+def get_text_from_html(html):
+    soup = BeautifulSoup(html, 'html.parser')
+    paragraphs = soup.findAll('p')
+    content = []
+    for ps in paragraphs:
+        for ch in ps.children:
+            if isinstance(ch, element.NavigableString):
+                content.append(ch)
+
+    return ''.join(content)
 
 
 def process_web_doc(url):
     start = time()
     print('[app] Processing {}'.format(url))
+
+    if url.endswith('.pdf'):
+        return Response(400, 'PDF files are not currently supported.')
+
     try:
         raw = req.get(url).content.decode('utf8')
 
         if not url.endswith('.txt'):
-            raw = BeautifulSoup(raw, 'html.parser').get_text()
+            raw = get_text_from_html(raw)
 
         doc_id = insert_document(url)
         document_words = process_raw(raw, doc_id)
 
         if document_words:
-            insert_document_words(doc_id, document_words)
+            bulk_insert_document_words(doc_id, document_words)
 
+        print('[app] Finished processing {} after {:.2f}s'.format(url, time() - start))
         return Response(200, '{} has been processed successfully.'.format(url))
     except req.exceptions.MissingSchema as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
@@ -91,8 +105,6 @@ def process_web_doc(url):
         print('[app] Could not open {}. {}'.format(url, exc))
         return Response(500, 'An error occurred whilst processing {}.'.format(url))
 
-    print('[app] Finished processing {} after {:.2f}s'.format(url, time() - start))
-
 
 def process_doc(file, doc_id):
     with open(file, 'r') as fr:
@@ -100,12 +112,21 @@ def process_doc(file, doc_id):
         document_words = process_raw(contents, doc_id)
 
         if document_words:
-            insert_document_words(doc_id, document_words)
+            bulk_insert_document_words(doc_id, document_words)
+
+
+def get_all_non_hidden_files():
+    return [
+        fname for fname in
+        os.listdir(DOCUMENTS_FOLDER)
+        if not fname.startswith('.')
+        and os.path.isfile(os.path.join(DOCUMENTS_FOLDER, fname))
+    ]
 
 
 def get_all_files(docs_in_db):
     docs_in_db = set([doc.name for doc in docs_in_db])
-    filenames = set([f for f in os.listdir(DOCUMENTS_FOLDER) if not f.startswith('.')])
+    filenames = set(get_all_non_hidden_files())
     return tuple(docs_in_db.union(filenames))
 
 
@@ -116,9 +137,7 @@ def get_files_not_in_db(filenames, skip):
         skip_set = set()
 
     if not filenames:
-        filenames = set(
-            [f for f in os.listdir(DOCUMENTS_FOLDER) if not f.startswith('.')]
-        )
+        filenames = set(get_all_non_hidden_files())
 
     filenames = [f for f in filenames if f not in skip_set]
     return filenames

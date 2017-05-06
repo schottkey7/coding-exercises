@@ -1,5 +1,19 @@
 ## Creating Hashtags
 
+### About
+This is a simple web app that generates reports of most common words (top 10)
+in individual documents or over a selection of them. The data is stored in a local
+sqlite database called "hashtags.db". The sqlite database has limitations and performance
+suffers with large files.
+
+To process more local files, please place them in the /documents folder and they will
+appear in the drop-down upon refresh. Currently only supports local .txt files.
+
+To import web pages, specify a URL in the "Load Web Pages" section and hit "Process".
+After successful import, the web document will appear in the drop-down menu and will
+be available for reports. Currently, only web pages containing text and html are supported.
+
+
 ### Requirements
 Create a virtual environment, for example (requires virtualenvwrapper):
 ```

@@ -27,4 +27,4 @@ class SentenceWords(db.Model):
 
     word = db.Column(db.String, primary_key=True)
     sentence = db.Column(db.Text, primary_key=True)
-    doc_id = db.Column(db.Integer, db.ForeignKey('Document.id'), primary_key=False)
+    doc_id = db.Column(db.Integer, db.ForeignKey('Document.id'), primary_key=True)

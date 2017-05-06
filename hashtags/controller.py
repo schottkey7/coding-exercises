@@ -12,7 +12,7 @@ def home():
     db_docs = get_all_db_docs()
     all_files = get_all_files(db_docs)
     results = construct_report()
-    return render_template('index.html', files=all_files, results=results)
+    return render_template('home.html', files=all_files, results=results)
 
 
 @app.route("/process", methods=['POST'])
@@ -42,7 +42,7 @@ def process():
 
     all_files = get_all_files(db_docs)
 
-    return render_template('index.html', files=all_files, results=results, alert=alert)
+    return render_template('home.html', files=all_files, results=results, alert=alert)
 
 
 if __name__ == "__main__":
