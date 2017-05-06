@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hashtags</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href='//fonts.googleapis.com/css?family=PT Sans' rel='stylesheet'>
+    <!-- <link href="static/components.css" rel="stylesheet" media="screen"> -->
+    <style>
+      body {
+          font-family: 'PT Sans';font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>Document Hashtags</h1>
+      </div>
+      <ol class="breadcrumb">
+        <li><a href="/">Home</a></li>
+        <li class="active">Report</li>
+      </ol>
+      <p>All documents in the /documents folder will be processed and keywords from
+         them will be extracted. The results will be displayed in a table below. To add
+         more files, just copy them to the /documents folder and click "Generate hashtags".
+       </p>
+       <form action="/">
+        <input class="btn btn-default" type="submit" value="Generate hashtags"/>
+      </form>
+      <br />
+      {% if not is_empty %}
+      <table class="table table-hover table-bordered">
+          <thead>
+              <tr>
+                  <th>Word</th>
+                  <th>Documents</th>
+                  <th>Sentences containing the word</th>
+                  <th>Count</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for line in results %}
+              <tr>
+                  <td>{{ line['word'] }}</td>
+                  <td>{{ line['documents'] }}</td>
+                  <td>
+                    {% for sentence in line['sentences'] %}
+                      <p>{{ sentence }}</p>
+                    {% endfor %}
+                  </td>
+                  <td>{{ line['count'] }}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+       {% endif %}
+    </div>
+  </body>
+</html>
