@@ -129,7 +129,11 @@
                 </div>
                 <div class="col-lg-2">
                    <label for="generate">Submit report:</label>
-                   <input class="btn btn-default" type="submit" value="Generate hashtags"/>
+                   <input id="generate"
+                          onclick="changeFilesInputText()"
+                          class="btn btn-default"
+                          type="submit"
+                          value="Generate hashtags"/>
                 </div>
               </form>
             </div>
@@ -193,8 +197,11 @@
                   <div class="form-group">
                     <form action="/process" method="POST">
                       <input type="text" class="form-control" name="url" value="" />
-                      <button class="btn btn-lg btn-outline" type="submit">
-                      <i class="fa fa-cloud-download"></i> Process
+                      <button id="process_docs_button"
+                              onclick="changeWebButtonText()"
+                              class="btn btn-lg btn-outline"
+                              type="submit">
+                        <i class="fa fa-cloud-download"></i> Process
                     </button>
                    </form>
                  </div>
@@ -251,6 +258,8 @@
 
     <!-- Theme JavaScript -->
     <script src="static/js/freelancer.min.js"></script>
+
+    <script src="static/js/helper.js"></script>
 
 </body>
 

@@ -1,8 +1,9 @@
 from flask import render_template, request
 from helper import process_files, construct_report,\
-    get_all_files, process_web_doc, Response, get_all_db_docs, get_doc
+    get_all_files, process_web_doc, Response, get_all_db_docs
 
-from app import app
+from app import app, db
+from models import Document
 
 
 @app.route("/", methods=['GET'])
@@ -25,7 +26,7 @@ def process():
 
     # Process a web document
     if url:
-        if get_doc(url):
+        if db.session.query(Document.name).filter_by(name=url).all():
             alert = Response(
                 302,
                 'Duplicate URL. The file at {} is already available.'.format(url))

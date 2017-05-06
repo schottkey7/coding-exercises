@@ -1,14 +1,6 @@
 from app import db
 
 
-class Word(db.Model):
-    """Word model"""
-
-    __tablename__ = 'Word'
-
-    word = db.Column(db.String, primary_key=True)
-
-
 class Document(db.Model):
     """Document model"""
 
@@ -23,7 +15,7 @@ class DocumentWords(db.Model):
 
     __tablename__ = 'DocumentWords'
 
-    word = db.Column(db.String, db.ForeignKey('Word.word'), primary_key=True)
+    word = db.Column(db.String, primary_key=True)
     doc_id = db.Column(db.Integer, db.ForeignKey('Document.id'), primary_key=True)
     count = db.Column(db.Integer)
 
@@ -33,6 +25,6 @@ class SentenceWords(db.Model):
 
     __tablename__ = 'SentenceWords'
 
-    word = db.Column(db.String, db.ForeignKey('Word.word'), primary_key=True)
+    word = db.Column(db.String, primary_key=True)
     sentence = db.Column(db.Text, primary_key=True)
     doc_id = db.Column(db.Integer, db.ForeignKey('Document.id'), primary_key=False)

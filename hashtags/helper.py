@@ -5,10 +5,11 @@ import requests as req
 from app import db
 from bs4 import BeautifulSoup
 from collections import defaultdict, namedtuple
-from models import Word, DocumentWords, Document, SentenceWords
+from models import DocumentWords, Document, SentenceWords
 from nltk.corpus import stopwords
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.sql import func
+from time import time
 
 
 DOCUMENTS_FOLDER = 'documents/'
@@ -16,10 +17,6 @@ SENTENCES_REG = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s'
 WORDS_REG = r'\b[^\W\d_]+\b'
 
 Response = namedtuple('Response', 'status_code msg')
-
-
-def get_doc(doc_name):
-    return db.session.query(Document.name).filter_by(name=doc_name).all()
 
 
 def get_document_word(doc_id, word):
@@ -56,15 +53,6 @@ def insert_document_words(doc_id, words):
             db.session.commit()
 
 
-def insert_word(word):
-    try:
-        new_word = Word(word=word)
-        db.session.add(new_word)
-        db.session.commit()
-    except IntegrityError:
-        db.session.rollback()
-
-
 def process_raw(contents, doc_id):
     stop = set(stopwords.words('english'))
     sentences = re.split(SENTENCES_REG, contents)
@@ -74,13 +62,13 @@ def process_raw(contents, doc_id):
         for word in words:
             if word not in stop:
                 document_words[word] += 1
-                insert_word(word)
                 insert_sentence_word(word, sentence, doc_id)
 
     return document_words
 
 
 def process_web_doc(url):
+    start = time()
     print('[app] Processing {}'.format(url))
     try:
         raw = req.get(url).content.decode('utf8')
@@ -102,7 +90,8 @@ def process_web_doc(url):
     except Exception as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
         return Response(500, 'An error occurred whilst processing {}.'.format(url))
-    print('[app] Finished processing {}'.format(url))
+
+    print('[app] Finished processing {} after {:.2f}s'.format(url, time() - start))
 
 
 def process_doc(file, doc_id):
@@ -127,13 +116,16 @@ def get_files_not_in_db(filenames, skip):
         skip_set = set()
 
     if not filenames:
-        filenames = set([f for f in os.listdir(DOCUMENTS_FOLDER) if not f.startswith('.')])
+        filenames = set(
+            [f for f in os.listdir(DOCUMENTS_FOLDER) if not f.startswith('.')]
+        )
 
     filenames = [f for f in filenames if f not in skip_set]
     return filenames
 
 
 def process_files(files=[], skip=[]):
+    start = time()
     filenames = get_files_not_in_db(files, skip)
 
     for doc_name in filenames:
@@ -141,7 +133,7 @@ def process_files(files=[], skip=[]):
         print('[app] Processing {}'.format(doc_name))
         doc_id = insert_document(doc_name)
         process_doc(file, doc_id)
-        print('[app] Finished processing {}'.format(doc_name))
+        print('[app] Finished processing {} after {:.2f}s'.format(doc_name, time() - start))
 
 
 def construct_report(selected_docs=None):
