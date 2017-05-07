@@ -1,0 +1,7 @@
+*.pyc
+__pycache__
+.DS_Store
+hashtags/.*
+hashtags/cover
+hashtags/*.pyc
+hashtags/__pycache__

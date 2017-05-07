@@ -103,7 +103,7 @@
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
-                  <strong>OK!</strong> {{ alert.msg }}
+                  <strong>Heads up!</strong> {{ alert.msg }}
                 </div>
                 {% else %}
                 <div class="alert alert-danger alert-dismissible" role="alert">
@@ -223,6 +223,7 @@
             <div class="row">
                 <div class="col-lg-4 col-lg-offset-2">
                     <p>This web app displays a report of the 10 most common keywords in individual documents or over a selection of them.
+                      The data is stored in a local sqlite database called "hashtags.db".
                 </div>
                 <div class="col-lg-4">
                     <p>To process more local files, please place them in the <b>/documents</b>

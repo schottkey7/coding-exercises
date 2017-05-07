@@ -1,4 +1,4 @@
-from app import db
+from hashtags.app import db
 
 
 class Document(db.Model):

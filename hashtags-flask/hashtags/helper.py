@@ -2,14 +2,14 @@ import os
 import re
 import requests as req
 
-from app import db
 from bs4 import BeautifulSoup, element
 from collections import defaultdict, namedtuple
-from models import DocumentWords, Document, SentenceWords
 from nltk.corpus import stopwords
 from sqlalchemy.sql import func
 from time import time
 
+from hashtags.app import db
+from hashtags.models import DocumentWords, Document, SentenceWords
 
 DOCUMENTS_FOLDER = 'documents/'
 SENTENCES_REG = r'(?<!\w\.\w.)(?<![A-Z][a-z]\.)(?<=\.|\?)\s'
@@ -121,8 +121,8 @@ def process_web_doc(url):
         return Response(500, 'An error occurred whilst processing {}.'.format(url))
 
 
-def process_doc(file, doc_id):
-    with open(file, 'r', encoding='utf-8') as fr:
+def process_doc(filepath, doc_id):
+    with open(filepath, 'r', encoding='utf-8') as fr:
         contents = fr.read()
         document_words = process_raw(contents, doc_id)
 
@@ -163,10 +163,11 @@ def process_files(files=[], skip=[]):
     filenames = get_files_not_in_db(files, skip)
 
     for doc_name in filenames:
-        file = os.path.join(DOCUMENTS_FOLDER, doc_name)
+        filepath = os.path.join(DOCUMENTS_FOLDER, doc_name)
         print('[app] Processing {}'.format(doc_name))
-        doc_id = insert_document(doc_name)
-        process_doc(file, doc_id)
+        if os.path.exists(filepath):
+            doc_id = insert_document(doc_name)
+            process_doc(filepath, doc_id)
         print('[app] Finished processing {} after {:.2f}s'.format(doc_name, time() - start))
 
 

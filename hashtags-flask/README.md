@@ -34,7 +34,12 @@ python initialize.py
 
 Then, to run the application:
 ```
-python controller.py
+python hashtags.py
+```
+
+To run tests and get a report of test coverage:
+```
+nosetests tests.py --with-coverage --cover-package=hashtags
 ```
 
 Then, navigate to [http://localhost:5000](http://localhost:5000)

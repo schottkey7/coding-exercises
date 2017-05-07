@@ -1,9 +1,9 @@
 from flask import render_template, request
-from helper import process_files, construct_report,\
-    get_all_files, process_web_doc, Response, get_all_db_docs
 
-from app import app, db
-from models import Document
+from hashtags.app import app, db
+from hashtags.models import Document
+from hashtags.helper import process_files, construct_report,\
+    get_all_files, process_web_doc, Response, get_all_db_docs
 
 
 @app.route("/", methods=['GET'])
@@ -18,18 +18,16 @@ def home():
 @app.route("/process", methods=['POST'])
 def process():
     """Render the home page after submitting a processing request"""
-    selected_files = tuple(request.form.getlist('doc_names'))
-
-    url = request.form.get('url')
+    selected_files = tuple(request.values.getlist('doc_names'))
+    url = request.values.get('url')
     alert = None
     results = []
 
     # Process a web document
     if url:
         if db.session.query(Document.name).filter_by(name=url).all():
-            alert = Response(
-                302,
-                'Duplicate URL. The file at {} is already available.'.format(url))
+            msg = 'Duplicate URL. The file at {} is already available.'.format(url)
+            alert = Response(302, msg)
         else:
             alert = process_web_doc(url)
 
