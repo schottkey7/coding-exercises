@@ -84,7 +84,7 @@ def process_web_doc(url):
         return Response(400, 'PDF files are not currently supported.')
 
     try:
-        resp = req.get(url)
+        resp = req.get(url, timeout=10)
 
         if resp.status_code != 200:
             return Response(400, 'Error fetching file ({} {})'.format(
@@ -105,10 +105,17 @@ def process_web_doc(url):
 
         print('[app] Finished processing {} after {:.2f}s'.format(url, time() - start))
         return Response(200, '{} has been processed successfully.'.format(url))
+    except req.exceptions.ReadTimeout as exc:
+        print('[app] Could not open {}. {}'.format(url, exc))
+        return Response(
+            500, 'Could not process document "{}", timeout exceeded.'.format(url))
     except req.exceptions.MissingSchema as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
         return Response(
             400, 'Could not process document, "{}" is not a valid URL.'.format(url))
+    except req.exceptions.ConnectionError as exc:
+        print('[app] Could not open {}. {}'.format(url, exc))
+        return Response(400, 'Failed to establish conection with "{}".'.format(url))
     except Exception as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
         return Response(500, 'An error occurred whilst processing {}.'.format(url))
