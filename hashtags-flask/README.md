@@ -19,6 +19,7 @@ Create a virtual environment, for example (requires virtualenvwrapper):
 ```
 mkvirtualenv --no-site-packages --python=/usr/local/bin/python3 hashtags
 ```
+tested with python 3.6 and python 2.7.
 
 To install the requirements, run:
 ```
