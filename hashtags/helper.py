@@ -84,7 +84,15 @@ def process_web_doc(url):
         return Response(400, 'PDF files are not currently supported.')
 
     try:
-        raw = req.get(url).content.decode('utf8')
+        resp = req.get(url)
+
+        if resp.status_code != 200:
+            return Response(400, 'Error fetching file ({} {})'.format(
+                resp.status_code,
+                resp.reason
+            ))
+
+        raw = resp.content.decode('utf8')
 
         if not url.endswith('.txt'):
             raw = get_text_from_html(raw)
