@@ -122,7 +122,7 @@ def process_web_doc(url):
 
 
 def process_doc(file, doc_id):
-    with open(file, 'r') as fr:
+    with open(file, 'r', encoding='utf-8') as fr:
         contents = fr.read()
         document_words = process_raw(contents, doc_id)
 
