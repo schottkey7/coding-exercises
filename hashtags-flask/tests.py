@@ -90,18 +90,19 @@ class HashtagsTestCases(TestCase):
         self.assertIsInstance(doc_id, int)
 
     def test_get_files_not_in_db(self):
-        filenames = helper.get_files_not_in_db([], [])
-        all_files = helper.get_all_non_hidden_files()
+        filenames = sorted(helper.get_files_not_in_db([], []))
+        all_files = sorted(helper.get_all_non_hidden_files())
 
-        self.assertItemsEqual(filenames, all_files)
+        self.assertEqual(filenames, all_files)
 
-    @patch('hashtags.helper.req')
-    def test_construct_report_all(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_construct_report_all(self, get_patch):
         url = 'mock://test.txt'
-        response = FakeResponse(200, 'success', 'random content')
-        req_patch.get.return_value = response
+        response = FakeResponse(200, 'success', 'random content'.encode('utf-8'))
+        get_patch.return_value = response
         result = helper.process_web_doc(url)
         result = helper.construct_report()
+
         expected = [
             {
                 'count': 1,
@@ -120,22 +121,22 @@ class HashtagsTestCases(TestCase):
     def test_get_files_not_in_db_with_skip(self):
         skipped_doc = 'doc1.txt'
         skip = [Document(name=skipped_doc)]
-        filenames = helper.get_files_not_in_db([], skip)
-        all_files = helper.get_all_non_hidden_files()
+        filenames = sorted(helper.get_files_not_in_db([], skip))
+        all_files = sorted(helper.get_all_non_hidden_files())
         all_files.remove(skipped_doc)
 
-        self.assertItemsEqual(filenames, all_files)
+        self.assertEqual(filenames, all_files)
 
     def test_process_raw(self):
         contents = 'This is a test string'
         document_words = helper.process_raw(contents, 15)
         self.assertEqual(document_words, {'test': 1, 'string': 1})
 
-    @patch('hashtags.helper.req')
+    @patch('hashtags.helper.req.get')
     def test_process_valid_web_text_doc(self, req_patch):
         url = 'mock://test.txt'
-        response = FakeResponse(200, 'success', 'some content')
-        req_patch.get.return_value = response
+        response = FakeResponse(200, 'success', 'some content'.encode('utf-8'))
+        req_patch.return_value = response
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
 
@@ -144,11 +145,12 @@ class HashtagsTestCases(TestCase):
             result.msg, '{} has been processed successfully.'.format(url))
         self.assertEqual(docs[0].name, url)
 
-    @patch('hashtags.helper.req')
-    def test_process_valid_web_html_doc(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_process_valid_web_html_doc(self, get_patch):
         url = 'mock://test.html'
-        response = FakeResponse(200, 'success', '<html><p>some content</p></html>')
-        req_patch.get.return_value = response
+        response = FakeResponse(
+            200, 'success', '<html><p>some content</p></html>'.encode('utf-8'))
+        get_patch.return_value = response
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
 
@@ -157,25 +159,22 @@ class HashtagsTestCases(TestCase):
             result.msg, '{} has been processed successfully.'.format(url))
         self.assertEqual(docs[0].name, url)
 
-    @patch('hashtags.helper.req')
-    def test_process_invvalid_url(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_process_invvalid_url(self, get_patch):
         url = 'mock://invalid.html'
-        req_patch.exceptions.MissingSchema = MissingSchema
-        req_patch.get.side_effect = MissingSchema()
+        get_patch.side_effect = MissingSchema()
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
-        msg = 'Could not process document, "{}" is not a valid URL.'.format(
-            url)
+        msg = 'Could not process document, "{}" is not a valid URL.'.format(url)
 
         self.assertEqual(result.status_code, 400)
         self.assertEqual(result.msg, msg)
         self.assertEqual(docs, [])
 
-    @patch('hashtags.helper.req')
-    def test_process_url_timeout(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_process_url_timeout(self, get_patch):
         url = 'mock://timeout.html'
-        req_patch.exceptions.ReadTimeout = ReadTimeout
-        req_patch.get.side_effect = ReadTimeout()
+        get_patch.side_effect = ReadTimeout()
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
         msg = 'Could not process document "{}", timeout exceeded.'.format(url)
@@ -184,11 +183,10 @@ class HashtagsTestCases(TestCase):
         self.assertEqual(result.msg, msg)
         self.assertEqual(docs, [])
 
-    @patch('hashtags.helper.req')
-    def test_process_url_connection_issue(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_process_url_connection_issue(self, get_patch):
         url = 'mock://cantconnect.html'
-        req_patch.exceptions.ConnectionError = ConnectionError
-        req_patch.get.side_effect = ConnectionError()
+        get_patch.side_effect = ConnectionError()
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
         msg = 'Failed to establish conection with "{}".'.format(url)
@@ -197,10 +195,10 @@ class HashtagsTestCases(TestCase):
         self.assertEqual(result.msg, msg)
         self.assertEqual(docs, [])
 
-    @patch('hashtags.helper.req')
-    def test_process_url_other_error(self, req_patch):
+    @patch('hashtags.helper.req.get')
+    def test_process_url_other_error(self, get_patch):
         url = 'mock://cantconnect.html'
-        req_patch.get.side_effect = Exception()
+        get_patch.side_effect = Exception()
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
         msg = 'An error occurred whilst processing {}.'.format(url)
