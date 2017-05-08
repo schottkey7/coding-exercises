@@ -2,11 +2,16 @@
 
 ## About
 
-This is a simple web app that generates reports of most common words (top 10) in individual documents or over a selection of them. The data is stored in a local sqlite database called "hashtags.db". The sqlite database has limitations and performance suffers with large files.
+This is a simple web app that generates reports of most commonly occurring words (top 10) in individual documents or over a selection of them. The data is stored in a local sqlite database called "hashtags.db". The sqlite database has limitations and performance suffers with large files.
 
 To process more local files, please place them in the `/documents` folder and they will appear in the drop-down upon refresh. Currently only supports local .txt files.
 
-To import web pages, specify a URL in the "Load Web Pages" section and hit "Process". After successful import, the web document will appear in the drop-down menu and will be available for reports. Currently, only web pages containing text and html are supported.
+To import web pages, specify a URL in the "Load Web Pages" section and hit "Process". After a successful import, the web document will appear in the drop-down menu and will be available for reports. Currently, only web pages containing text and html are supported.
+
+I explored using the python package [spaCy](https://spacy.io/) for this task
+and concluded that it is for more advanced tasks when natural language processing
+becomes more central. For this task it was sufficient to find a way to obtain words
+and sentences from the text without understanding the components and the relationships between the words. For sentiment analysis, for example, spaCy would be ideal.
 
 ## Requirements
 
