@@ -147,8 +147,7 @@ class HashtagsTestCases(TestCase):
     @patch('hashtags.helper.req')
     def test_process_valid_web_html_doc(self, req_patch):
         url = 'mock://test.html'
-        response = FakeResponse(
-            200, 'success', '<html><p>some content</p></html>')
+        response = FakeResponse(200, 'success', '<html><p>some content</p></html>')
         req_patch.get.return_value = response
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
