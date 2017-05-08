@@ -38,7 +38,7 @@ Then, to run the application:
 python hashtags.py
 ```
 
-Then, navigate to <http://localhost:5000>
+Then, navigate to <http://localhost:5000>.
 
 To run tests and get a report of test coverage:
 
