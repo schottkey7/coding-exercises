@@ -11,7 +11,7 @@ from hashtags.controller import app, db
 from hashtags.models import Document, DocumentWords, SentenceWords
 
 
-FakeResponse = namedtuple('Response', 'status_code msg content')
+FakeResponse = namedtuple('Response', 'status_code msg content reason')
 
 
 class HashtagsTestCases(TestCase):
@@ -98,7 +98,8 @@ class HashtagsTestCases(TestCase):
     @patch('hashtags.helper.req.get')
     def test_construct_report_all(self, get_patch):
         url = 'mock://test.txt'
-        response = FakeResponse(200, 'success', 'random content'.encode('utf-8'))
+        response = FakeResponse(
+            200, 'success', 'random content'.encode('utf-8'), '')
         get_patch.return_value = response
         result = helper.process_web_doc(url)
         result = helper.construct_report()
@@ -135,7 +136,7 @@ class HashtagsTestCases(TestCase):
     @patch('hashtags.helper.req.get')
     def test_process_valid_web_text_doc(self, req_patch):
         url = 'mock://test.txt'
-        response = FakeResponse(200, 'success', 'some content'.encode('utf-8'))
+        response = FakeResponse(200, 'success', 'some content'.encode('utf-8'), '')
         req_patch.return_value = response
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
@@ -149,7 +150,7 @@ class HashtagsTestCases(TestCase):
     def test_process_valid_web_html_doc(self, get_patch):
         url = 'mock://test.html'
         response = FakeResponse(
-            200, 'success', '<html><p>some content</p></html>'.encode('utf-8'))
+            200, 'success', '<html><p>some content</p></html>'.encode('utf-8'), '')
         get_patch.return_value = response
         result = helper.process_web_doc(url)
         docs = Document.query.filter_by(name=url).all()
@@ -160,7 +161,7 @@ class HashtagsTestCases(TestCase):
         self.assertEqual(docs[0].name, url)
 
     @patch('hashtags.helper.req.get')
-    def test_process_invvalid_url(self, get_patch):
+    def test_process_invalid_url(self, get_patch):
         url = 'mock://invalid.html'
         get_patch.side_effect = MissingSchema()
         result = helper.process_web_doc(url)
@@ -169,6 +170,21 @@ class HashtagsTestCases(TestCase):
 
         self.assertEqual(result.status_code, 400)
         self.assertEqual(result.msg, msg)
+        self.assertEqual(docs, [])
+
+    @patch('hashtags.helper.req.get')
+    def test_error_fetching_web_doc(self, get_patch):
+        url = 'mock://forbidden.html'
+        response = FakeResponse(302, 'Forbidden', '', 'Forbidden')
+        get_patch.return_value = response
+        result = helper.process_web_doc(url)
+        docs = Document.query.filter_by(name=url).all()
+
+        self.assertEqual(result.status_code, 500)
+        self.assertEqual(result.msg, 'Error fetching file ({} {})'.format(
+            response.status_code,
+            response.reason
+        ))
         self.assertEqual(docs, [])
 
     @patch('hashtags.helper.req.get')

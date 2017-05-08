@@ -87,7 +87,7 @@ def process_web_doc(url):
         resp = req.get(url, timeout=10)
 
         if resp.status_code != 200:
-            return Response(400, 'Error fetching file ({} {})'.format(
+            return Response(500, 'Error fetching file ({} {})'.format(
                 resp.status_code,
                 resp.reason
             ))
