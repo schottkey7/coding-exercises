@@ -8,10 +8,7 @@ To process more local files, please place them in the `/documents` folder and th
 
 To import web pages, specify a URL in the "Load Web Pages" section and hit "Process". After a successful import, the web document will appear in the drop-down menu and will be available for reports. Currently, only web pages containing text and html are supported.
 
-I explored using the python package [spaCy](https://spacy.io/) for this task
-and concluded that it is for more advanced tasks when natural language processing
-becomes more central. For this task it was sufficient to find a way to obtain words
-and sentences from the text without understanding the components and the relationships between the words. For sentiment analysis, for example, spaCy would be ideal.
+I explored using the python package [spaCy](https://spacy.io/) for this task and concluded that it is for more advanced use cases when natural language processing becomes more central. For this task it was sufficient to find a way to obtain words and sentences from the text without understanding the components and the relationships between the words. For sentiment analysis, for example, spaCy would be ideal.
 
 ## Requirements
 
