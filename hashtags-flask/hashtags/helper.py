@@ -115,7 +115,7 @@ def process_web_doc(url):
             400, 'Could not process document, "{}" is not a valid URL.'.format(url))
     except req.exceptions.ConnectionError as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
-        return Response(400, 'Failed to establish conection with "{}".'.format(url))
+        return Response(500, 'Failed to establish conection with "{}".'.format(url))
     except Exception as exc:
         print('[app] Could not open {}. {}'.format(url, exc))
         return Response(500, 'An error occurred whilst processing {}.'.format(url))

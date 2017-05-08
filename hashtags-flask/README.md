@@ -43,5 +43,7 @@ Then, navigate to <http://localhost:5000>
 To run tests and get a report of test coverage:
 
 ```
-nosetests tests.py --with-coverage --cover-package=hashtags
+nosetests tests.py --with-coverage --cover-package=hashtags --cover-html
 ```
+
+To view the coverage html report, open `cover/index.html` in a browser.

@@ -41,7 +41,3 @@ def process():
     all_files = get_all_files(db_docs)
 
     return render_template('home.html', files=all_files, results=results, alert=alert)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
