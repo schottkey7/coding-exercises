@@ -142,7 +142,7 @@ def get_all_non_hidden_files():
 def get_all_files(docs_in_db):
     docs_in_db = set([doc.name for doc in docs_in_db])
     filenames = set(get_all_non_hidden_files())
-    return tuple(docs_in_db.union(filenames))
+    return tuple(sorted(docs_in_db.union(filenames)))
 
 
 def get_files_not_in_db(filenames, skip):
