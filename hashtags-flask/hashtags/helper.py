@@ -73,7 +73,7 @@ def get_text_from_html(html):
             if isinstance(ch, element.NavigableString):
                 content.append(ch)
 
-    return ''.join(content)
+    return ' '.join(content)
 
 
 def process_web_doc(url):
