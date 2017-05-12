@@ -2,7 +2,7 @@
 
 ## About
 
-This is a simple web app that generates reports of most commonly occurring words (top 10) in individual documents or over a selection of them. The data is stored in a local sqlite database called "hashtags.db". The sqlite database has limitations and performance suffers with large files.
+This is a simple web app that generates reports for most commonly occurring words (top 10) in individual documents or over a selection of them. The data is stored in a local sqlite database "hashtags.db". The sqlite database has limitations and performance suffers with large files.
 
 To process more local files, please place them in the `/documents` folder and they will appear in the drop-down upon refresh. Currently only supports local .txt files.
 
