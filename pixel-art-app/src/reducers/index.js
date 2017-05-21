@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import { List as list } from 'immutable';
 
+import boards from './boards';
 
 const App = combineReducers({
-    boards: (state = list()) => state
+    boards
 });
 
 

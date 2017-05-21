@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { List as list } from 'immutable';
 
-import Cell from './Cell.jsx';
+import Cell from './Cell';
 
 
 const Grid = ({ board, boardNum }) => {
@@ -13,6 +13,8 @@ const Grid = ({ board, boardNum }) => {
         width: `600px`,
         lineHeight: '0em'
     };
+
+    console.log('re-render Grid', board);
 
     return (
         <div className="ui segment" style={{ width: "100%", height: "100%" }}>
