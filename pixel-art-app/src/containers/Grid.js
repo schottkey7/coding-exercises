@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import ResizeAware from 'react-resize-aware';
 
 import Cell from './Cell';
-import * as actions from './actions';
+import * as actions from '../actions';
 
 
 const Grid = ({ actions, board, grid, boardNum }) => {

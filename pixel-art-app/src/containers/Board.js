@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { List as list } from 'immutable';
 
 import Grid from './Grid';
-import * as actions from './actions';
+import * as actions from '../actions';
 
 
 const Board = ({ boards, actions }) => {

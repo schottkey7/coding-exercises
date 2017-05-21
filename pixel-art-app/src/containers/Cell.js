@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Map as map } from 'immutable';
 
-import * as actions from './actions';
+import * as actions from '../actions';
 
 const Cell = ({ actions, palette, grid, board, i, row, col }) => {
     const pixelSize = board.get('pixelSize');

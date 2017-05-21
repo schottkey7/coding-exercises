@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Board from './Board';
-import Palette from './Palette';
+import Board from '../containers/Board';
+import Palette from '../containers/Palette';
 
 const App = () => {
     return (
