@@ -52,5 +52,4 @@ test('renders ColorPickerButton', t => {
 });
 
 
-
 // TODO: add more tests
