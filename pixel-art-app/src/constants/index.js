@@ -20,8 +20,8 @@ const initialState = {
         )
     })]),
     grid: {
-        size: defaultGridSize,
-        defaultColor: defaultCellColor
+        defaultColor: defaultCellColor,
+        windowSize: window.innerWidth
     },
     palette: {
         numColors: defaultNuMPaletteColors,

@@ -35,3 +35,8 @@ export const selectColor = ({ color }) => ({
     type: actionTypes.SELECT_COLOR,
     payload: { color }
 });
+
+export const setWindowSize = ({ size }) => ({
+    type: actionTypes.SET_WINDOW_SIZE,
+    payload: { size }
+});
