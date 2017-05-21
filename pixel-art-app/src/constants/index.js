@@ -23,7 +23,7 @@ const initialState = {
     })]),
     grid: {
         defaultColor: defaultCellColor,
-        windowSize: window.innerWidth
+        windowSize: 1000
     },
     navigation: {
         maxBoards: 7

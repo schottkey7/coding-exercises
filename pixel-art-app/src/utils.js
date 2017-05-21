@@ -61,5 +61,6 @@ export {
     modifyBoard,
     resizeBoard,
     getRandomColor,
-    keyValPairInListOfObjects
+    keyValPairInListOfObjects,
+    extendBoard
 };
