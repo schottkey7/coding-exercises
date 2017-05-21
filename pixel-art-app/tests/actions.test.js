@@ -133,3 +133,13 @@ test('closeColorPicker action test', t => {
 
     t.deepEqual(actions.closeColorPicker(), expected);
 });
+
+test('setWindowSize action test', t => {
+    const payload = { size: 300 };
+    const expected = {
+        type: actionTypes.SET_WINDOW_SIZE,
+        payload
+    };
+
+    t.deepEqual(actions.setWindowSize(payload), expected);
+});
