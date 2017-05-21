@@ -12,6 +12,8 @@ const initialState = {
 
     boards: list([map({
         isDragOn: false,
+        name: 'default',
+        active: true,
         pixelSize: defaultPixelSize,
         board: matrix(
             defaultGridSize,
@@ -23,6 +25,9 @@ const initialState = {
         defaultColor: defaultCellColor,
         windowSize: window.innerWidth
     },
+    navigation: {
+        maxBoards: 7
+    },
     palette: {
         numColors: defaultNuMPaletteColors,
         size: 30,
@@ -33,7 +38,24 @@ const initialState = {
     }
 };
 
+const numToWordMapping = {
+    1: 'one',
+    2: 'two',
+    3: 'three',
+    4: 'four',
+    5: 'five',
+    6: 'six',
+    7: 'seven',
+    8: 'eight',
+    9: 'nine',
+    10: 'ten'
+};
+
 
 export {
-    initialState
+    initialState,
+    numToWordMapping,
+    defaultCellColor,
+    defaultGridSize,
+    defaultPixelSize
 };

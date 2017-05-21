@@ -1,16 +1,47 @@
-import { List as list } from 'immutable';
+import shortid from 'shortid';
+import { Map as map, List as list } from 'immutable';
 
-import { fillCell, modifyBoard, resizeBoard } from '../utils';
+import { fillCell, modifyBoard, resizeBoard, matrix } from '../utils';
+import { defaultCellColor, defaultGridSize, defaultPixelSize } from '../constants';
 import {
     FILL_CELL,
     TOGGLE_DRAGGING,
     SET_NEW_PIXEL_SIZE,
-    RESIZE_BOARD
+    RESIZE_BOARD,
+    ADD_BOARD,
+    REMOVE_BOARD,
+    MAKE_BOARD_ACTIVE
 } from '../constants/actionTypes';
 
 
 const boards = (state = list(), action) => {
     switch (action.type) {
+        case ADD_BOARD:
+            return state
+                .map(b => b.set('active', false))
+                .push(map({
+                    name: shortid.generate(),
+                    active: true,
+                    isDragOn: false,
+                    pixelSize: defaultPixelSize,
+                    board: matrix(defaultGridSize, defaultGridSize, defaultCellColor)
+                }));
+        case REMOVE_BOARD:
+            if (typeof action.payload.i !== 'undefined') {
+                return state.delete(action.payload.i);
+            } else if (typeof action.payload.name !== 'undefined') {
+                return state.filter(b => b.get('name') !== action.payload.name);
+            }
+            return state;
+        case MAKE_BOARD_ACTIVE:
+            if (state.size > 0) {
+                return modifyBoard(state, {
+                    i: action.payload.i,
+                    key: 'active',
+                    val: true
+                });
+            }
+            return state;
         case FILL_CELL:
             return fillCell(state, action.payload);
         case TOGGLE_DRAGGING:

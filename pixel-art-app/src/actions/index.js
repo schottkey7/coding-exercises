@@ -40,3 +40,18 @@ export const setWindowSize = ({ size }) => ({
     type: actionTypes.SET_WINDOW_SIZE,
     payload: { size }
 });
+
+export const addBoard = () => ({
+    type: actionTypes.ADD_BOARD,
+    payload: {}
+});
+
+export const removeBoard = ({ name, i }) => ({
+    type: actionTypes.REMOVE_BOARD,
+    payload: { i, name }
+});
+
+export const makeBoardActive = ({ i }) => ({
+    type: actionTypes.MAKE_BOARD_ACTIVE,
+    payload: { i }
+});

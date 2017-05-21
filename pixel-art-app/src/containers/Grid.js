@@ -63,6 +63,11 @@ const Grid = ({ actions, board, grid, boardNum }) => {
         });
     };
 
+    const removeBoard = () => {
+        actions.removeBoard({ i: boardNum });
+        actions.makeBoardActive({ i: 0 });
+    };
+
 
     return (
         <ResizeAware onResize={handleWindowResize}>
@@ -81,6 +86,10 @@ const Grid = ({ actions, board, grid, boardNum }) => {
                             style={{ marginLeft: "5px" }}
                             onClick={resizeGrid}>
                         Resize
+                    </button>
+
+                    <button className="ui button" onClick={removeBoard}>
+                        Remove board
                     </button>
                 </div>
 

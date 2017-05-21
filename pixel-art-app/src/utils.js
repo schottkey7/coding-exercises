@@ -50,11 +50,16 @@ const getRandomColor = () => {
     return color;
 };
 
+const keyValPairInListOfObjects = (list, key, val) => {
+    return list.map(b => b.get(key)).contains(val);
+};
+
 export {
     matrix,
     initializeList,
     fillCell,
     modifyBoard,
     resizeBoard,
-    getRandomColor
+    getRandomColor,
+    keyValPairInListOfObjects
 };
