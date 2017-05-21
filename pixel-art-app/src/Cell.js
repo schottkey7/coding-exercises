@@ -6,15 +6,14 @@ import { Map as map } from 'immutable';
 
 import * as actions from './actions';
 
-const Cell = ({ actions, board, i, row, col }) => {
+const Cell = ({ actions, palette, grid, board, i, row, col }) => {
     const pixelSize = board.get('pixelSize');
-    const color = '#000';
+    const { selectedColor } = palette;
     const styles = {
         display: 'inline-block',
         verticalAlign: 'top',
         borderRight: 'solid 1px #dcdcdc',
         borderBottom: 'solid 1px #dcdcdc',
-        marginTop: '1px',
         width: `${pixelSize}px`,
         height: `${pixelSize}px`,
         backgroundColor: board.get('board').getIn([row, col]),
@@ -24,12 +23,19 @@ const Cell = ({ actions, board, i, row, col }) => {
 
     const handleMouseOver = () => {
         if (board.get('isDragOn')) {
-            return actions.fillCell({ i, row, col, color });
+            return actions.fillCell({ i, row, col, color: selectedColor });
         }
     };
 
     const handleClick = () => {
-        return actions.fillCell({ i, row, col, color });
+        let color = palette.selectedColor;
+        const cellColor = board.getIn(['board', row, col]);
+
+        if (color === cellColor) {
+            color = grid.defaultColor;
+        }
+
+        return actions.fillCell({ i, row, col, color: selectedColor });
     };
 
     return (
@@ -47,7 +53,9 @@ Cell.propTypes = {
     row: PropTypes.number.isRequired,
     col: PropTypes.number.isRequired,
     board: PropTypes.instanceOf(map).isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    grid: PropTypes.object.isRequired,
+    palette: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({

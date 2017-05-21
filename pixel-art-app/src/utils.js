@@ -40,10 +40,21 @@ const resizeBoard = (board, { name, size, color }) => {
     return board;
 };
 
+const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+};
+
 export {
     matrix,
     initializeList,
     fillCell,
     modifyBoard,
-    resizeBoard
+    resizeBoard,
+    getRandomColor
 };

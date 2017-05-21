@@ -1,7 +1,9 @@
+import R from 'ramda';
 import { List as list, Map as map } from 'immutable';
 
-import { matrix } from '../utils';
+import { matrix, getRandomColor } from '../utils';
 
+const defaultNuMPaletteColors = 42;
 const defaultCellColor = '#fbfbfb';
 const defaultGridSize = 20;
 const defaultPixelSize = Math.floor(1000 / defaultGridSize);
@@ -20,6 +22,14 @@ const initialState = {
     grid: {
         size: defaultGridSize,
         defaultColor: defaultCellColor
+    },
+    palette: {
+        numColors: defaultNuMPaletteColors,
+        size: 30,
+        defaultSelectedColor: '#000',
+        selectedColor: '#000',
+        colors: R.map(getRandomColor, Array(defaultNuMPaletteColors)),
+        displayColorPicker: false
     }
 };
 

@@ -20,3 +20,18 @@ export const resizeBoard = ({ size, name, color }) => ({
     type: actionTypes.RESIZE_BOARD,
     payload: { size, name, color }
 });
+
+export const toggleDisplayColorPicker = () => ({
+    type: actionTypes.TOGGLE_DISPLAY_COLOR_PICKER,
+    payload: {}
+});
+
+export const closeColorPicker = () => ({
+    type: actionTypes.CLOSE_COLOR_PICKER,
+    payload: {}
+});
+
+export const selectColor = ({ color }) => ({
+    type: actionTypes.SELECT_COLOR,
+    payload: { color }
+});

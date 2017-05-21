@@ -18,6 +18,10 @@ const Grid = ({ actions, board, grid, boardNum }) => {
         lineHeight: '0em'
     };
 
+    const updateDimensions = () => {
+        console.log('Update dimensions', window.innerWidth);
+    }
+
     const resizeGrid = () => {
         const newSize = Math.ceil(document.getElementById('newSize').value);
         const newPixelSize = Math.floor(1000 / newSize);
