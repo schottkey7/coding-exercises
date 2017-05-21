@@ -1,19 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+
+import Board from './Board';
 import './App.css';
 
-class App extends Component {
-  render() {
+
+const App = () => {
     return (
       <div className="App">
         <div className="App-header">
           <h2>Pixel Art App</h2>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Board />
       </div>
     );
-  }
-}
+};
+
 
 export default App;
