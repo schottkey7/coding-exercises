@@ -18,9 +18,32 @@ const modifyBoard = (state, { i, key, val }) => {
     return state.set(i, state.get(i).set(key, val));
 };
 
+const extendBoard = (boardGrid, size, color) => {
+    const diff = size - boardGrid.size;
+
+    return boardGrid
+            .map(r => r.concat(initializeList(diff, color)))
+            .concat(matrix(diff, size, color));
+};
+
+const resizeBoard = (board, { name, size, color }) => {
+    const boardGrid = board.get('board');
+
+    if (size <= 100) {
+        if (size < boardGrid.size) {
+            const grid = boardGrid.setSize(size).map(a => a.setSize(size));
+            return board.set('board', grid);
+        } else if (size > boardGrid.size) {
+            return board.set('board', extendBoard(boardGrid, size, color));
+        } else return board;
+    }
+    return board;
+};
+
 export {
     matrix,
     initializeList,
     fillCell,
-    modifyBoard
+    modifyBoard,
+    resizeBoard
 };

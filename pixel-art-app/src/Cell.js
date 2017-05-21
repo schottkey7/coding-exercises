@@ -7,14 +7,16 @@ import { Map as map } from 'immutable';
 import * as actions from './actions';
 
 const Cell = ({ actions, board, i, row, col }) => {
+    const pixelSize = board.get('pixelSize');
     const color = '#000';
     const styles = {
         display: 'inline-block',
         verticalAlign: 'top',
         borderRight: 'solid 1px #dcdcdc',
         borderBottom: 'solid 1px #dcdcdc',
-        width: `30px`,
-        height: `30px`,
+        marginTop: '1px',
+        width: `${pixelSize}px`,
+        height: `${pixelSize}px`,
         backgroundColor: board.get('board').getIn([row, col]),
         cursor: board.get('isDragOn') ? 'pointer' : 'auto',
         lineHeight: 'inherit'
@@ -45,7 +47,7 @@ Cell.propTypes = {
     row: PropTypes.number.isRequired,
     col: PropTypes.number.isRequired,
     board: PropTypes.instanceOf(map).isRequired,
-    actions: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
