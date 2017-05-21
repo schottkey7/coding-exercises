@@ -19,7 +19,7 @@ const Cell = ({ board, i, row, col }) => {
         <div key={`${i}-${row}-${col}`}
              style={styles} />
     );
-}
+};
 
 
 Cell.propTypes = {

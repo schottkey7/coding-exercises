@@ -20,7 +20,7 @@ const Board = ({ boards, actions }) => {
     });
 
     return <div>{artBoards}</div>;
-}
+};
 
 
 Board.propTypes = {

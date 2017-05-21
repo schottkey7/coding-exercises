@@ -6,7 +6,6 @@ import Cell from './Cell.jsx';
 
 
 const Grid = ({ board, boardNum }) => {
-
     const styles = {
         borderLeft: 'solid 1px #dcdcdc',
         borderTop: 'solid 1px #dcdcdc',

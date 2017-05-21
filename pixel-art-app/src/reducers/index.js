@@ -7,4 +7,4 @@ const App = combineReducers({
 });
 
 
-export default App
+export default App;
