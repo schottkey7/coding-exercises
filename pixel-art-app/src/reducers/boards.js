@@ -1,5 +1,5 @@
 import shortid from 'shortid';
-import { Map as map, List as list } from 'immutable';
+import { Map as map, List as list, fromJS } from 'immutable';
 
 import { fillCell, modifyBoard, resizeBoard, matrix } from '../utils';
 import { defaultCellColor, defaultGridSize, defaultPixelSize } from '../constants';
@@ -15,6 +15,10 @@ import {
 
 
 const boards = (state = list(), action) => {
+    // convert to Immutable due to localstorage returning state as an array
+    if (state.constructor.name === 'Array') {
+        state = fromJS(state);
+    }
     switch (action.type) {
         case ADD_BOARD:
             return state

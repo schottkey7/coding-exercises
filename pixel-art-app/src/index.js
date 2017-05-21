@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import persistState from 'redux-localstorage';
 
 import App from './components/App';
 import reducer from './reducers';
 import { initialState } from './constants';
 
-const store = createStore(reducer, initialState);
+const enchancer = compose(persistState());
+const store = createStore(reducer, initialState, enchancer);
 
 const render = () => {
     ReactDOM.render(

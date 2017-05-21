@@ -6,15 +6,21 @@ import { List as list } from 'immutable';
 
 import Grid from './Grid';
 import * as actions from '../actions';
+import { keyValPairInListOfObjects } from '../utils';
 
 
-const Board = ({ boards, actions }) => {
+const Board = ({ boards, linkedBoardName }) => {
+    let activeBoardName = boards.size ? boards.filter(b => b.get('active')).getIn([0, 'name']) : null;
     const artBoards = [];
 
+    if (linkedBoardName && keyValPairInListOfObjects(boards, 'name', linkedBoardName)) {
+        activeBoardName = linkedBoardName;
+    }
+
     boards.forEach((b, i) => {
-        artBoards.push(
-            <Grid key={i} boardNum={i} board={b} />
-        );
+        if (b.get('name') === activeBoardName) {
+            artBoards.push(<Grid key={i} boardNum={i} board={b} />);
+        }
     });
 
     return <div>{artBoards}</div>;
@@ -23,7 +29,8 @@ const Board = ({ boards, actions }) => {
 
 Board.propTypes = {
     boards: PropTypes.instanceOf(list).isRequired,
-    actions: PropTypes.object.isRequired
+    actions: PropTypes.object.isRequired,
+    linkedBoardName: PropTypes.string
 };
 
 

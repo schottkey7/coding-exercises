@@ -12,6 +12,7 @@
     "react-resize-aware": "^2.4.4",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
+    "redux-localstorage": "^0.4.1",
     "shortid": "^2.2.8"
   },
   "devDependencies": {
