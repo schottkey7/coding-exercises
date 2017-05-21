@@ -1,15 +1,12 @@
 import React from 'react';
 
 import Board from './Board';
-import './App.css';
-
 
 const App = () => {
     return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Pixel Art App</h2>
-        </div>
+      <div className="ui container">
+        <h1 className="ui dividing header">PIXEL ART</h1>
+        <p className="first">Simple app that lets you draw in a grid of pixels. Enjoy! :]</p>
         <Board />
       </div>
     );

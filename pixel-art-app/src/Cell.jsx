@@ -11,7 +11,7 @@ const Cell = ({ board, i, row, col }) => {
         borderBottom: 'solid 1px #dcdcdc',
         width: `30px`,
         height: `30px`,
-        backgroundColor: board.get(row).get(col),
+        backgroundColor: board.get([row, col]),
         lineHeight: 'inherit'
     };
 

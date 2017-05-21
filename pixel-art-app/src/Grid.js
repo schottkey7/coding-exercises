@@ -10,12 +10,12 @@ const Grid = ({ board, boardNum }) => {
         borderLeft: 'solid 1px #dcdcdc',
         borderTop: 'solid 1px #dcdcdc',
         height: '100%',
-        width: `30px`,
+        width: `600px`,
         lineHeight: '0em'
     };
 
     return (
-        <div>
+        <div className="ui segment" style={{ width: "100%", height: "100%" }}>
              <div style={styles}>
                 { board.map((row, i) => row.map((el, j) =>
                     (<Cell board={board} i={boardNum} row={i} col={j} />)
