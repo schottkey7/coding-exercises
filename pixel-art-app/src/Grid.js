@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { List as list } from 'immutable';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Cell from './Cell';
+import * as actions from './actions';
 
 
-const Grid = ({ board, boardNum }) => {
+const Grid = ({ actions, board, boardNum }) => {
     const styles = {
         borderLeft: 'solid 1px #dcdcdc',
         borderTop: 'solid 1px #dcdcdc',
@@ -14,12 +16,13 @@ const Grid = ({ board, boardNum }) => {
         lineHeight: '0em'
     };
 
-    console.log('re-render Grid', board);
-
     return (
-        <div className="ui segment" style={{ width: "100%", height: "100%" }}>
+        <div className="ui segment"
+             style={{ width: "100%", height: "100%" }}
+             onMouseUp={() => actions.toggleDragging({ i: boardNum, on: false })}
+             onMouseDown={() => actions.toggleDragging({ i: boardNum, on: true })}>
              <div style={styles}>
-                { board.map((row, i) => row.map((el, j) =>
+                { board.get('board').map((row, i) => row.map((el, j) =>
                     (<Cell board={board} i={boardNum} row={i} col={j} />)
                 ))}
             </div>
@@ -28,9 +31,18 @@ const Grid = ({ board, boardNum }) => {
 };
 
 Grid.propTypes = {
-    board: PropTypes.instanceOf(list).isRequired,
-    boardNum: PropTypes.number.isRequired
+    actions: PropTypes.object.isRequired,
+    boardNum: PropTypes.number.isRequired,
+    board: PropTypes.object.isRequired
 };
 
 
-export default Grid;
+const mapDispatchToProps = (dispatch) => ({
+    actions: bindActionCreators(actions, dispatch)
+});
+
+
+export default connect(
+    undefined,
+    mapDispatchToProps
+)(Grid);

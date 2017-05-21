@@ -11,11 +11,9 @@ import * as actions from './actions';
 const Board = ({ boards, actions }) => {
     const artBoards = [];
 
-    console.log(boards);
-
     boards.forEach((b, i) => {
         artBoards.push(
-            <Grid key={i} boardNum={i} board={b.get('board')} />
+            <Grid key={i} boardNum={i} board={b} />
         );
     });
 

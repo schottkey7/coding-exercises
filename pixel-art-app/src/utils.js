@@ -14,8 +14,13 @@ const fillCell = (state, { i, row, col, color }) => {
     return state.set(i, currentBoard.setIn(['board'], currentBoardGrid));
 };
 
+const modifyBoard = (state, { i, key, val }) => {
+    return state.set(i, state.get(i).set(key, val));
+};
+
 export {
     matrix,
     initializeList,
-    fillCell
+    fillCell,
+    modifyBoard
 };

@@ -9,6 +9,7 @@ const defaultCellColor = '#fbfbfb';
 const initialState = {
 
     boards: list([map({
+        isDragOn: false,
         board: matrix(
             defaultGridSize,
             defaultGridSize,
