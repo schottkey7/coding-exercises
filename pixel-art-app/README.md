@@ -14,7 +14,9 @@ yarn run build
 yarn global add serve
 serve -s build
 ```
-Then, navigate to <http://localhost:5000>
+or `yarn start-optimised`. Then, navigate to <http://localhost:5000>.
+
+If a build already exists and no changes have been introduced since the last build, then running `serve -s build` is sufficient.
 
 To run tests `npm test` or `yarn test` and for test coverage report `npm test-report` or `yarn test-report`. To view the coverage html report, open `cover/index.html` in a browser.
 

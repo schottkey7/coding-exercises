@@ -34,7 +34,8 @@
     "build": "react-scripts build",
     "test": "nyc ava --verbose",
     "test-report": "nyc report --reporter=html",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start-optimised": "yarn run build; yarn global add serve; serve -s build"
   },
   "ava": {
     "files": [
