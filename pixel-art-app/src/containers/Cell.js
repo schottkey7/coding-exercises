@@ -35,7 +35,7 @@ const Cell = ({ actions, palette, grid, board, i, row, col }) => {
             color = grid.defaultColor;
         }
 
-        return actions.fillCell({ i, row, col, color: selectedColor });
+        return actions.fillCell({ i, row, col, color });
     };
 
     return (
