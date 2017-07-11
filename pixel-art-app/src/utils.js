@@ -54,6 +54,10 @@ const keyValPairInListOfObjects = (list, key, val) => {
     return list.map(b => b.get(key)).contains(val);
 };
 
+const unusedFunc = (args) => {
+  return args;
+};
+
 export {
     matrix,
     initializeList,
