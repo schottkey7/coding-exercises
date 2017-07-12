@@ -54,13 +54,16 @@ const keyValPairInListOfObjects = (list, key, val) => {
     return list.map(b => b.get(key)).contains(val);
 };
 
+const unusedFunc = (a, b) => {
+  return a + b;
+};
+
+
 export {
-    matrix,
     initializeList,
     fillCell,
     modifyBoard,
     resizeBoard,
     getRandomColor,
-    keyValPairInListOfObjects,
-    extendBoard
+    keyValPairInListOfObjects
 };
