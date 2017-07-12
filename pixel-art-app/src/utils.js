@@ -60,11 +60,10 @@ const unusedFunc = (a, b) => {
 
 
 export {
-    matrix,
     initializeList,
     fillCell,
     modifyBoard,
     resizeBoard,
     getRandomColor,
-    keyValPairInListOfObjects,
+    keyValPairInListOfObjects
 };
