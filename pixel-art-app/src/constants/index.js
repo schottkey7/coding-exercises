@@ -33,7 +33,6 @@ const initialState = {
         size: 30,
         defaultSelectedColor: '#000',
         selectedColor: '#000',
-        colors: R.map(getRandomColor, Array(defaultNuMPaletteColors)),
         displayColorPicker: false
     }
 };
