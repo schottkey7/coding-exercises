@@ -1,7 +1,6 @@
 import shortid from 'shortid';
-import { Map as map, List as list, fromJS } from 'immutable';
 
-import { fillCell, modifyBoard, resizeBoard, matrix } from '../utils';
+import { fillCell, resizeBoard, matrix } from '../utils';
 import { defaultCellColor, defaultGridSize, defaultPixelSize } from '../constants';
 import {
     FILL_CELL,
