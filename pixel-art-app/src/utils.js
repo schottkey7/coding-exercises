@@ -1,8 +1,5 @@
 import { List as list } from 'immutable';
 
-const initializeList = (n, val) => {
-    return list(Array(n).fill(val));
-};
 
 const matrix = (n, m, val) => {
     return initializeList(n).map(() => initializeList(m, val));
@@ -12,10 +9,6 @@ const fillCell = (state, { i, row, col, color }) => {
     const currentBoard = state.get(i);
     const currentBoardGrid = currentBoard.get('board').setIn([row, col], color);
     return state.set(i, currentBoard.setIn(['board'], currentBoardGrid));
-};
-
-const modifyBoard = (state, { i, key, val }) => {
-    return state.set(i, state.get(i).set(key, val));
 };
 
 const extendBoard = (boardGrid, size, color) => {
@@ -49,10 +42,6 @@ const getRandomColor = () => {
         color += letters[Math.floor(Math.random() * 16)];
     }
     return color;
-};
-
-const keyValPairInListOfObjects = (list, key, val) => {
-    return list.map(b => b.get(key)).contains(val);
 };
 
 export {
