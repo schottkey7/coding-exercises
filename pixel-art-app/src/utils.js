@@ -35,7 +35,8 @@ const resizeBoard = (board, { name, size, color }) => {
             return board.set('board', grid);
         } else if (size > boardGrid.size) {
             return board.set('board', extendBoard(boardGrid, size, color));
-        } else return board;
+        }
+        return board;
     }
     return board;
 };
